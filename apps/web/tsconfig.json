@@ -1,6 +1,13 @@
 {
   "extends": "@repo/typescript-config/nextjs.json",
   "compilerOptions": {
+      "module": "ESNext",
+      "moduleResolution": "Bundler",
+      //for openapi-typescript
+      "noUncheckedIndexedAccess": true,
+      //for openapi-typescript
+      "skipLibCheck": true,
+      "maxNodeModuleJsDepth": 0,
     "plugins": [
       {
         "name": "next"

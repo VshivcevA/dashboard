@@ -1,13 +1,20 @@
 {
   "name": "api",
   "version": "0.1.0",
-  "module": "index.ts",
+  "module": "src/index.js",
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun run --watch index.ts"
+    "dev": "bun run --watch src/index.ts"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.2.0",
+    "@elysiajs/swagger": "^1.2.2",
+    "elysia": "latest",
+    "systeminformation": "^5.25.11"
   },
   "devDependencies": {
+    "bun-types": "latest",
     "@types/bun": "latest",
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
