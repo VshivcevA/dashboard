@@ -1,30 +1,38 @@
+import styles from "./Column.module.scss";
+import prettyBytes from "pretty-bytes";
+
 export function Column({
   value,
   maxValue,
+  isBites,
 }: {
   value: number;
   maxValue: number;
+  isBites?: boolean;
 }) {
   return (
-    <div
-      style={{
-        border: "1px solid #ccc",
-        height: maxValue,
-        width: 100,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "end",
-      }}
-    >
+    <div>
       <div
+        className={styles.column__container}
         style={{
-          background: "#333",
-          height: value,
-          width: "100%",
-          // transition: "0.3 ease-in-out all ease",
-          transitionDuration: "0.9s",
+          height: 100,
         }}
-      ></div>
+      >
+        <div
+          className={styles.column}
+          style={{
+            height: 100 - (value / maxValue) * 100,
+          }}
+        ></div>
+      </div>
+      <p>
+        {isBites
+          ? prettyBytes(value, {
+              minimumFractionDigits: 1,
+              maximumFractionDigits: 1,
+            })
+          : value}
+      </p>
     </div>
   );
 }

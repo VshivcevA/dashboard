@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "next": "^15.2.1",
+    "pretty-bytes": "^6.1.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "sass": "^1.86.3"
   },
   "devDependencies": {
     "@feature-sliced/steiger-plugin": "^0.5.5",

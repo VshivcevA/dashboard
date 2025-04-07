@@ -15,17 +15,10 @@ export function sse(
         const sseMessage = `data: ${JSON.stringify(data)}\n\n`;
         controller.enqueue(new TextEncoder().encode(sseMessage));
       }, interval);
-
-      return () => {
-        console.log("close ReadableStream");
-        clearInterval(timeout);
-        controller.enqueue(new TextEncoder().encode("event: close\n\n"));
-        controller.close();
-      };
     },
     cancel() {
       console.log("close ReadableStream");
-      clearInterval(interval);
+      clearInterval(timeout);
     },
   });
 

@@ -1,0 +1,15 @@
+.column {
+  background: #0a0a0a;
+  width: 100%;
+  transition: 0.5s height ease-in-out;
+  &__container {
+    background: linear-gradient(0deg,green,yellow,red);
+    border: 1px solid #ccc;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    position: relative;
+
+  }
+}

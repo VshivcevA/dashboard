@@ -30,9 +30,44 @@ export function Dashboard() {
         }}
       >
         {systemInfo.cpu.cores.map((core, index) => (
-          <Column key={index} value={core.frequency * 20} maxValue={5.3 * 20} />
+          <div key={index} style={{ display: "flex" }}>
+            <Column value={core.load} maxValue={100} />
+            {core.frequency != systemInfo.cpu.frequency.max && (
+              <Column
+                value={core.frequency}
+                maxValue={systemInfo.cpu.frequency.max}
+              />
+            )}
+          </div>
         ))}
       </div>
+      <div style={{ display: "flex" }}>
+        <Column
+          value={systemInfo.memory.used}
+          maxValue={systemInfo.memory.total}
+          isBites
+        />
+        <Column
+          value={systemInfo.memory.swapused}
+          maxValue={systemInfo.memory.swaptotal}
+          isBites
+        />
+      </div>
+      <div style={{ display: "flex" }}>
+        <Column
+          value={systemInfo.disk.used}
+          maxValue={systemInfo.disk.size}
+          isBites
+        />
+        <Column
+          value={systemInfo.disk.available}
+          maxValue={systemInfo.disk.size}
+          isBites
+        />
+      </div>
+      <div>{systemInfo.disk.size}</div>
+      <div>{systemInfo.disk.used}</div>
+      <div>{systemInfo.disk.available}</div>
       <pre>{JSON.stringify(systemInfo, null, 2)}</pre>
     </>
   );
